@@ -13,6 +13,7 @@ public class Steuerung {
         Brett = new Figur[8][8];
         this.dieGUI = dieGUI;
         Reader = new FENReader(Brett);
+        Reader.lese(FENReader.Grundaufstellung);
     }
     
     

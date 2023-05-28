@@ -41,6 +41,7 @@ public class GUI extends javax.swing.JPanel {
                 RenderingHints.VALUE_ANTIALIAS_ON);
         g.setFont(Arial);
         zeichneSchachbrett(g);
+        dieSteuerung.zeichne(g);
     }
 
     private void zeichneSchachbrett(Graphics g) {
