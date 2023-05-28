@@ -9,6 +9,18 @@ package figuren;
  *
  * @author Joalu
  */
-public class Turm {
+public class Turm extends Figur {
+
+    public Turm(int pReihe, int pSpalte, boolean pWeiss) {
+        super(pReihe, pSpalte, pWeiss);
+        ID = Figur.ID_TURM;
+    }
+
+    @Override
+    public void zeigeLaufmoeglichkeiten() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     
 }
