@@ -59,6 +59,8 @@ public class Springer extends Figur{
                 if(dasBrett[reihe+r][spalte+s].isWeiss() != weiss){
                     return true;
                 }
+            }else{
+                return true;
             }
         }
         return false;
