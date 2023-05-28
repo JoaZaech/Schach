@@ -24,7 +24,7 @@ public class Steuerung {
         }
         this.dieGUI = dieGUI;
         Reader = new FENReader(Brett);
-        Reader.lese("8/8/5n2/3n1R2/8/4N3/8/8");
+        Reader.lese("8/5pp1/4p3/3p4/2pPPP2/7p/3r1PPP/8");
     }
 
     public void zeichne(Graphics g) {
