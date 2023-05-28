@@ -16,7 +16,7 @@ public class Bauer extends Figur{
     }
 
     @Override
-    public void zeigeLaufmoeglichkeiten() {
+    public boolean[][] zeigeLaufmoeglichkeiten() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
