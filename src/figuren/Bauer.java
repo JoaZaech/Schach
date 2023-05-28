@@ -9,6 +9,15 @@ package figuren;
  *
  * @author Joalu
  */
-public class Bauer {
+public class Bauer extends Figur{
+
+    public Bauer(int pReihe, int pSpalte, boolean pWeiss) {
+        super(pReihe, pSpalte, pWeiss);
+    }
+
+    @Override
+    public void zeigeLaufmoeglichkeiten() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

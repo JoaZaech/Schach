@@ -1,19 +1,28 @@
 package schach;
 
+import figuren.Bauer;
+import figuren.Dame;
 import figuren.Figur;
 import figuren.Koenig;
+import figuren.Laeufer;
+import figuren.Turm;
 import java.util.HashMap;
 
 public class FENReader {
     
     public static String Grundaufstellung = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
     private Figur[][] Brett;
-    private HashMap<Character, Figur> dieListe;
+    private HashMap<Character, Integer> dieListe;
     
     public FENReader(Figur[][] Brett){
         this.Brett = Brett;
         dieListe = new HashMap();
-        
+        dieListe.put('k', Figur.ID_KOENIG);
+        dieListe.put('p', Figur.ID_BAUER);
+        dieListe.put('r', Figur.ID_TURM);
+        dieListe.put('b', Figur.ID_LAEUFER);
+        dieListe.put('q', Figur.ID_DAME);
+        dieListe.put('n', Figur.ID_SPRINGER);
     }
     
     public void lese(String fen){
@@ -30,32 +39,41 @@ public class FENReader {
                 if(Character.isDigit(symbol)){
                     file += symbol;
                 }else{
-                    
-                    // Teste ob schwarz oder weiß 
-                    // Teste welche Figurart es ist
-                    // Setze die Figur ins Brett ein
-                    
-                    if((Character.isUpperCase(symbol))){
-                        
-                        //int figur = dieListe.get(Character.toLowerCase(symbol));
-                        
-                       // switch(figur){
-                            
-                        //}
-                        
-                    }else{
-                        
-                        // Schwarze Figur
-                        
-                    }
-                    
-                    
+                    setFigur(Character.toLowerCase(symbol), (Character.isUpperCase(symbol)), file, rank);
                     file++;
                 }
             }
             
         }
         
+    }
+    
+    private void setFigur(int figur, boolean weiss, int file, int rank){
+        switch(figur){
+            case Figur.ID_KOENIG: 
+                Brett[file][rank] = new Koenig(file, rank, weiss);
+                break;
+            case Figur.ID_BAUER: 
+                 Brett[file][rank] = new Bauer(file, rank, weiss);
+                break;
+            case Figur.ID_TURM: 
+                 Brett[file][rank] = new Turm(file, rank, weiss);
+                break;
+            case Figur.ID_LAEUFER: 
+                 Brett[file][rank] = new Laeufer(file, rank, weiss);
+                break;
+            case Figur.ID_DAME: 
+                 Brett[file][rank] = new Dame(file, rank, weiss);
+                break;
+        }
+        
+        /*
+                dieListe.put('k', Figur.ID_KOENIG);
+        dieListe.put('p', Figur.ID_BAUER);
+        dieListe.put('r', Figur.ID_TURM);
+        dieListe.put('b', Figur.ID_LAEUFER);
+        dieListe.put('q', Figur.ID_DAME);
+        dieListe.put('n', Figur.ID_SPRINGER);*/
     }
     
 }
