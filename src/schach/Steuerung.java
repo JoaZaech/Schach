@@ -24,7 +24,7 @@ public class Steuerung {
         }
         this.dieGUI = dieGUI;
         Reader = new FENReader(Brett);
-        Reader.lese("8/5pp1/4p3/3p4/2pPPP2/7p/3r1PPP/8");
+        Reader.lese("8/r2R3n/5R2/2n3R1/4N3/1N6/4q3/8");
     }
 
     public void zeichne(Graphics g) {
@@ -54,8 +54,20 @@ public class Steuerung {
         if (Brett[x][y] != null) {
             SelectedFigur = Brett[x][y];
             Laufmoeglichkeiten =  SelectedFigur.zeigeLaufmoeglichkeiten();
-        } else {
+        }else {
             SelectedFigur = null;
+            Laufmoeglichkeiten = null;
+        }
+    }
+    
+    
+    public void setzeFigur(int x, int y){
+        if(Laufmoeglichkeiten[x][y]){
+            Brett[x][y] = SelectedFigur;
+            Brett[SelectedFigur.getX()][SelectedFigur.getY()] = null;
+            SelectedFigur.setzePos(x, y);
+            SelectedFigur = null;
+            Laufmoeglichkeiten = null;
         }
     }
     
