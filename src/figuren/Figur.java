@@ -44,14 +44,14 @@ public abstract class Figur {
     }
     
     public void male(Graphics g){
-        g.drawImage(bild.gibBild(), reihe*WIDTH, spalte*HEIGHT, WIDTH, HEIGHT, null);
+        bild.zeichne(g, reihe*WIDTH, spalte*HEIGHT, WIDTH, HEIGHT);
     }
     
     protected void setzeBild(){
         if(weiss == true){
-            bild.setzeBild("img/white/"+ID+".png");
+            bild = new Bild("img/white/"+ID+".png");
         }else{
-            bild.setzeBild("img/black/"+ID+".png");
+            bild = new Bild("img/black/"+ID+".png");
         }
     }
     

@@ -5,6 +5,7 @@ import figuren.Dame;
 import figuren.Figur;
 import figuren.Koenig;
 import figuren.Laeufer;
+import figuren.Springer;
 import figuren.Turm;
 import java.util.HashMap;
 
@@ -39,7 +40,16 @@ public class FENReader {
                 if(Character.isDigit(symbol)){
                     file += symbol;
                 }else{
-                    setFigur(Character.toLowerCase(symbol), (Character.isUpperCase(symbol)), file, rank);
+                    boolean weiss;
+                    
+                    if((Character.isUpperCase(symbol))){
+                        weiss = true;
+                    }else{
+                        weiss = false;
+                    }
+                    
+                    
+                    setFigur(dieListe.get(Character.toLowerCase(symbol)), weiss , file, rank);
                     file++;
                 }
             }
@@ -58,6 +68,9 @@ public class FENReader {
                 break;
             case Figur.ID_TURM: 
                  Brett[file][rank] = new Turm(file, rank, weiss);
+                break;
+            case Figur.ID_SPRINGER: 
+                 Brett[file][rank] = new Springer(file, rank, weiss);
                 break;
             case Figur.ID_LAEUFER: 
                  Brett[file][rank] = new Laeufer(file, rank, weiss);
