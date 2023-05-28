@@ -23,4 +23,8 @@ public class Steuerung {
         
     }
     
+    public Figur[][] getBrett(){
+        return Brett;
+    }
+    
 }

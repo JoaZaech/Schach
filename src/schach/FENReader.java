@@ -37,9 +37,9 @@ public class FENReader {
                     
                     if((Character.isUpperCase(symbol))){
                         
-                        //int figur = dieListe.get(Character.toLowerCase(symbol));
+                       //int figur = dieListe.get(Character.toLowerCase(symbol));
                         
-                       // switch(figur){
+                        //switch(figur){
                             
                         //}
                         

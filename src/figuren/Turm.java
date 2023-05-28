@@ -14,11 +14,18 @@ public class Turm extends Figur {
     public Turm(int pReihe, int pSpalte, boolean pWeiss) {
         super(pReihe, pSpalte, pWeiss);
         ID = Figur.ID_TURM;
+        setzeBild();
+        
     }
 
     @Override
-    public void zeigeLaufmoeglichkeiten() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean[][] zeigeLaufmoeglichkeiten() {
+        boolean[][] laufMoeglichkeiten = new boolean[8][8];
+        for (int i = 0; i < laufMoeglichkeiten.length; i++) {
+            
+            
+        }
+        return laufMoeglichkeiten;
     }
 
     
