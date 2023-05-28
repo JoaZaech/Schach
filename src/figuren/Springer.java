@@ -5,6 +5,8 @@
  */
 package figuren;
 
+import java.awt.Point;
+import java.util.HashMap;
 import schach.Steuerung;
 
 /**
@@ -29,15 +31,26 @@ public class Springer extends Figur{
                 laufMoeglichkeiten[j][i] = false;
             }
         }
+        if(pruefeFeld( 2, 1)){
+            laufMoeglichkeiten[reihe+2][spalte+1] = true; 
+        }
         
-        if(pruefeFeld( 2, 1) == true ){ laufMoeglichkeiten[reihe+2][spalte+1] = true; }
-        if(pruefeFeld( 2,-1) == true ){ laufMoeglichkeiten[reihe+2][spalte-1] = true; }
-        if(pruefeFeld(-2, 1) == true ){ laufMoeglichkeiten[reihe-2][spalte+1] = true; }
-        if(pruefeFeld(-2,-1) == true ){ laufMoeglichkeiten[reihe-2][spalte-1] = true; }
-        if(pruefeFeld( 1, 2) == true ){ laufMoeglichkeiten[reihe+1][spalte+2] = true; }
-        if(pruefeFeld( 1,-2) == true ){ laufMoeglichkeiten[reihe+1][spalte-2] = true; }
-        if(pruefeFeld(-1, 2) == true ){ laufMoeglichkeiten[reihe-1][spalte+2] = true; }
-        if(pruefeFeld(-1,-2) == true ){ laufMoeglichkeiten[reihe-1][spalte-2] = true; }
+         if(pruefeFeld( 1, 2))
+        { laufMoeglichkeiten[reihe+1][spalte+2] = true; }
+        
+        if(pruefeFeld( 2,-1))
+        { laufMoeglichkeiten[reihe+2][spalte-1] = true; }
+        if(pruefeFeld(-2, 1) )
+        { laufMoeglichkeiten[reihe-2][spalte+1] = true; }
+        if(pruefeFeld(-2,-1))
+        { laufMoeglichkeiten[reihe-2][spalte-1] = true; }
+       
+        if(pruefeFeld( 1,-2))
+        { laufMoeglichkeiten[reihe+1][spalte-2] = true; }
+        if(pruefeFeld(-1, 2)  )
+        { laufMoeglichkeiten[reihe-1][spalte+2] = true; }
+        if(pruefeFeld(-1,-2) )
+        { laufMoeglichkeiten[reihe-1][spalte-2] = true; }
          return laufMoeglichkeiten;
     }
     

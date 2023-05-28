@@ -59,4 +59,12 @@ public abstract class Figur {
         spalte = y;
     }
     
+    public int getX(){
+        return reihe;
+    }
+    
+    public int getY(){
+        return spalte;
+    }
+    
 }
