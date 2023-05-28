@@ -54,4 +54,9 @@ public abstract class Figur {
         }
     }
     
+    public void setzePos(int x, int y){
+        reihe = x;
+        spalte = y;
+    }
+    
 }

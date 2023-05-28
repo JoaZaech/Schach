@@ -26,12 +26,10 @@ public class Laeufer extends Figur{
         
         for (int i = 0; i < laufMoeglichkeiten[0].length; i++) {
             for (int j = 0; j < laufMoeglichkeiten.length; j++) {
-                laufMoeglichkeiten[j][i] = true;
-                if(reihe != i){ laufMoeglichkeiten[j][i] = false; }
-                if(spalte != j){ laufMoeglichkeiten[j][i] = false; }
-                
+                laufMoeglichkeiten[j][i] = false;
             }
         }
+        
         return laufMoeglichkeiten;
     }
     
