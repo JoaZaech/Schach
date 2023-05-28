@@ -20,7 +20,11 @@ public class Steuerung {
     
     public void zeichne(Graphics g){
         
-        
+        for (int i = 0; i < Brett[0].length; i++) {
+            for (int j = 0; j < Brett.length; j++) {
+                Brett[j][i].male(g);
+            }
+        }
         
     }
     
