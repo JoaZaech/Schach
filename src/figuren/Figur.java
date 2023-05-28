@@ -49,9 +49,9 @@ public abstract class Figur {
     
     protected void setzeBild(){
         if(weiss == true){
-            bild.setzeBild("img/white/"+ID);
+            bild.setzeBild("img/white/"+ID+".png");
         }else{
-            bild.setzeBild("img/black/"+ID);
+            bild.setzeBild("img/black/"+ID+".png");
         }
     }
     

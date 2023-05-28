@@ -13,6 +13,8 @@ public class Springer extends Figur{
 
     public Springer(int pReihe, int pSpalte, boolean pWeiss) {
         super(pReihe, pSpalte, pWeiss);
+        ID = Figur.ID_SPRINGER;
+        setzeBild();
     }
 
     @Override

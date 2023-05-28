@@ -13,6 +13,8 @@ public class Dame extends Figur{
 
     public Dame(int pReihe, int pSpalte, boolean pWeiss) {
         super(pReihe, pSpalte, pWeiss);
+        ID = Figur.ID_DAME;
+        setzeBild();
     }
 
     @Override

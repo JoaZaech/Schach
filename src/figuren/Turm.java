@@ -22,7 +22,10 @@ public class Turm extends Figur {
     public boolean[][] zeigeLaufmoeglichkeiten() {
         boolean[][] laufMoeglichkeiten = new boolean[8][8];
         for (int i = 0; i < laufMoeglichkeiten.length; i++) {
-            
+            for (int j = 0; j < laufMoeglichkeiten.length; j++) {
+                
+                
+            }
             
         }
         return laufMoeglichkeiten;

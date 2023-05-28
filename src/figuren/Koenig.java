@@ -13,6 +13,8 @@ public class Koenig extends Figur{
 
     public Koenig(int pReihe, int pSpalte, boolean pWeiss) {
         super(pReihe, pSpalte, pWeiss);
+        ID = Figur.ID_KOENIG;
+        setzeBild();
     }
 
     @Override

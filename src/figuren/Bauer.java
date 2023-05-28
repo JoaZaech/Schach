@@ -13,6 +13,8 @@ public class Bauer extends Figur{
 
     public Bauer(int pReihe, int pSpalte, boolean pWeiss) {
         super(pReihe, pSpalte, pWeiss);
+        ID = Figur.ID_BAUER;
+        setzeBild();
     }
 
     @Override
