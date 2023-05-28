@@ -21,12 +21,13 @@ public class Turm extends Figur {
     @Override
     public boolean[][] zeigeLaufmoeglichkeiten() {
         boolean[][] laufMoeglichkeiten = new boolean[8][8];
+        Figur[][] dasBrett;
+        
         for (int i = 0; i < laufMoeglichkeiten.length; i++) {
             for (int j = 0; j < laufMoeglichkeiten.length; j++) {
                 
                 
             }
-            
         }
         return laufMoeglichkeiten;
     }
