@@ -38,7 +38,7 @@ public class FENReader {
                 rank++;
             }else{
                 if(Character.isDigit(symbol)){
-                    file += symbol;
+                    file += Character.getNumericValue(symbol);
                 }else{
                     boolean weiss;
                     
@@ -47,8 +47,6 @@ public class FENReader {
                     }else{
                         weiss = false;
                     }
-                    
-                    
                     setFigur(dieListe.get(Character.toLowerCase(symbol)), weiss , file, rank);
                     file++;
                 }
@@ -64,7 +62,7 @@ public class FENReader {
                 Brett[file][rank] = new Koenig(file, rank, weiss);
                 break;
             case Figur.ID_BAUER: 
-                 Brett[file][rank] = new Bauer(file, rank, weiss);
+                Brett[file][rank] = new Bauer(file, rank, weiss);
                 break;
             case Figur.ID_TURM: 
                  Brett[file][rank] = new Turm(file, rank, weiss);
