@@ -117,18 +117,7 @@ public class GUI extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(800, 800));
         setMinimumSize(new java.awt.Dimension(800, 800));
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                formMouseDragged(evt);
-            }
-        });
         addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                formMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                formMousePressed(evt);
-            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 formMouseReleased(evt);
             }
@@ -146,22 +135,9 @@ public class GUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        
-    }//GEN-LAST:event_formMouseDragged
-
     private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased
-
-        
+        dieSteuerung.SelectFigur(evt.getX() / T_WIDTH, evt.getY() / T_HEIGHT);
     }//GEN-LAST:event_formMouseReleased
-
-    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-        
-    }//GEN-LAST:event_formMousePressed
-
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        
-    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
