@@ -5,6 +5,8 @@
  */
 package figuren;
 
+import schach.Steuerung;
+
 /**
  *
  * @author Joalu
@@ -19,7 +21,18 @@ public class Laeufer extends Figur{
 
     @Override
     public boolean[][] zeigeLaufmoeglichkeiten() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean[][] laufMoeglichkeiten = new boolean[8][8];
+        Figur[][] dasBrett = Steuerung.getBrett();
+        
+        for (int i = 0; i < laufMoeglichkeiten[0].length; i++) {
+            for (int j = 0; j < laufMoeglichkeiten.length; j++) {
+                laufMoeglichkeiten[j][i] = true;
+                if(reihe != i){ laufMoeglichkeiten[j][i] = false; }
+                if(spalte != j){ laufMoeglichkeiten[j][i] = false; }
+                
+            }
+        }
+        return laufMoeglichkeiten;
     }
     
 }

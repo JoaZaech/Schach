@@ -5,6 +5,8 @@
  */
 package figuren;
 
+import schach.Steuerung;
+
 /**
  *
  * @author Joalu
@@ -21,11 +23,13 @@ public class Turm extends Figur {
     @Override
     public boolean[][] zeigeLaufmoeglichkeiten() {
         boolean[][] laufMoeglichkeiten = new boolean[8][8];
-        Figur[][] dasBrett;
+        Figur[][] dasBrett = Steuerung.getBrett();
         
-        for (int i = 0; i < laufMoeglichkeiten.length; i++) {
+        for (int i = 0; i < laufMoeglichkeiten[0].length; i++) {
             for (int j = 0; j < laufMoeglichkeiten.length; j++) {
-                
+                laufMoeglichkeiten[j][i] = true;
+                if(reihe != i){ laufMoeglichkeiten[j][i] = false; }
+                if(spalte != j){ laufMoeglichkeiten[j][i] = false; }
                 
             }
         }

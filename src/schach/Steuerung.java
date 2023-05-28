@@ -7,7 +7,7 @@ import java.awt.Graphics;
 
 public class Steuerung {
 
-    private Figur[][] Brett;
+    private static Figur[][] Brett;
     private GUI dieGUI;
     private FENReader Reader;
 
@@ -35,7 +35,7 @@ public class Steuerung {
 
     }
 
-    public Figur[][] getBrett() {
+    public static Figur[][] getBrett() {
         return Brett;
     }
 
