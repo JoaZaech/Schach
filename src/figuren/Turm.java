@@ -28,7 +28,10 @@ public class Turm extends Figur {
             }
         }
         Figur[][] dasBrett = Steuerung.getBrett();
-
+        
+        
+        
+        //  Links 
         for (int i = reihe-1; i >= 0; i--) {
             if (dasBrett[i][spalte] != null) {
                 if (dasBrett[i][spalte].isWeiss() == weiss) {
@@ -41,9 +44,10 @@ public class Turm extends Figur {
                 laufMoeglichkeiten[i][spalte] = true;
             }
         }
-
+        
+        
+        // Rechts
         for (int i = reihe + 1; i < dasBrett.length; i++) {
-
             if (dasBrett[i][spalte] != null) {
                 if (dasBrett[i][spalte].isWeiss() == weiss) {
                     break;
@@ -54,8 +58,38 @@ public class Turm extends Figur {
             } else {
                 laufMoeglichkeiten[i][spalte] = true;
             }
-
         }
+
+        
+        //  Oben 
+        for (int i = spalte-1; i >= 0; i--) {
+            if (dasBrett[reihe][i] != null) {
+                if (dasBrett[reihe][i].isWeiss() == weiss) {
+                    break;
+                } else {
+                    laufMoeglichkeiten[reihe][i] = true;
+                    break;
+                }
+            } else {
+                laufMoeglichkeiten[reihe][i] = true;
+            }
+        }
+        
+        
+        // Unten
+        for (int i = spalte + 1; i < dasBrett.length; i++) {
+            if (dasBrett[reihe][i] != null) {
+                if (dasBrett[reihe][i].isWeiss() == weiss) {
+                    break;
+                } else {
+                    laufMoeglichkeiten[reihe][i] = true;
+                    break;
+                }
+            } else {
+                laufMoeglichkeiten[reihe][i] = true;
+            }
+        }
+
 
         return laufMoeglichkeiten;
     }

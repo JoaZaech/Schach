@@ -12,6 +12,7 @@ public class Steuerung {
     private GUI dieGUI;
     private FENReader Reader;
     private Figur SelectedFigur;
+    private boolean[][] Laufmoeglichkeiten;
 
     public Steuerung(GUI dieGUI) {
         Brett = new Figur[8][8];
@@ -37,10 +38,9 @@ public class Steuerung {
         }
 
         if (SelectedFigur != null) {
-            boolean b[][] = SelectedFigur.zeigeLaufmoeglichkeiten();
-            for (int i = 0; i < b[0].length; i++) {
-                for (int j = 0; j < b.length; j++) {
-                    if (b[j][i]) {
+            for (int i = 0; i < Laufmoeglichkeiten[0].length; i++) {
+                for (int j = 0; j < Laufmoeglichkeiten.length; j++) {
+                    if (Laufmoeglichkeiten[j][i]) {
                         g.setColor(new Color(255,0,0,60));
                         g.fillRect(j * WIDTH, i * HEIGHT, WIDTH, HEIGHT);
                     }
@@ -53,9 +53,14 @@ public class Steuerung {
     public void SelectFigur(int x, int y) {
         if (Brett[x][y] != null) {
             SelectedFigur = Brett[x][y];
+            Laufmoeglichkeiten =  SelectedFigur.zeigeLaufmoeglichkeiten();
         } else {
             SelectedFigur = null;
         }
+    }
+    
+    public boolean isFigurSelected(){
+        return SelectedFigur != null;
     }
 
     public static Figur[][] getBrett() {
