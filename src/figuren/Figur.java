@@ -7,6 +7,7 @@ package figuren;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import schach.Bild;
 
 /**
  *
@@ -25,7 +26,7 @@ public abstract class Figur {
     public static final int HEIGHT = 100;
     
     protected int ID;
-    protected BufferedImage bild;
+    protected Bild bild;
     protected boolean weiss;
     protected int reihe;
     protected int spalte;
@@ -36,14 +37,22 @@ public abstract class Figur {
         weiss = pWeiss;
     }
     
-    public abstract void zeigeLaufmoeglichkeiten();
+    public abstract boolean[][] zeigeLaufmoeglichkeiten();
     
     public boolean isWeiss(){
         return weiss;
     }
     
     public void male(Graphics g){
-        g.drawImage(bild, reihe*WIDTH, spalte*HEIGHT, WIDTH, HEIGHT, null);
+        g.drawImage(bild.gibBild(), reihe*WIDTH, spalte*HEIGHT, WIDTH, HEIGHT, null);
+    }
+    
+    protected void setzeBild(){
+        if(weiss == true){
+            bild.setzeBild("img/white/"+ID);
+        }else{
+            bild.setzeBild("img/black/"+ID);
+        }
     }
     
 }
