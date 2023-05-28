@@ -6,21 +6,27 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.Rectangle2D;
-import java.util.HashMap;
 
 public class GUI extends javax.swing.JPanel {
-
+    
+    // Breite und Hoehe von Kästchen
     private static final int T_WIDTH = 100;
     private static final int T_HEIGHT = 100;
+   // Zeichne Schachbrett
     private static final char[] files = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
     private static final char[] rows = {'1', '2', '3', '4', '5', '6', '7', '8'};
     private Color black, white;
     private Font Arial;
-    private int FigurSelected;
+    
+    // Steuerung
+    private Steuerung dieSteuerung;
+    
+    
 
     public GUI() {
         this.setFocusable(true);
         this.requestFocus();
+        dieSteuerung = new Steuerung(this);
         initComponents();
         black = new Color(78, 44, 30);
         white = new Color(255, 255, 255);
@@ -34,7 +40,6 @@ public class GUI extends javax.swing.JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
         g.setFont(Arial);
-
         zeichneSchachbrett(g);
     }
 
