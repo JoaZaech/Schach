@@ -11,7 +11,7 @@ public class Turm extends Figur {
     }
 
     @Override
-    public boolean[][] zeigeLaufmoeglichkeiten() {
+    public void berechneLaufmoeglichkeiten() {
         dasBrett = Steuerung.dasBrett;
         for (int i = 0; i < laufMoeglichkeiten[0].length; i++) {
             for (int j = 0; j < laufMoeglichkeiten.length; j++) {
@@ -73,8 +73,6 @@ public class Turm extends Figur {
                 laufMoeglichkeiten[reihe][i] = true;
             }
         }
-
-        return laufMoeglichkeiten;
     }
 
 }

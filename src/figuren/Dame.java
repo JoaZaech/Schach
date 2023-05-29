@@ -8,7 +8,7 @@ public class Dame extends Figur{
     }
 
     @Override
-    public boolean[][] zeigeLaufmoeglichkeiten() {
+    public void berechneLaufmoeglichkeiten() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

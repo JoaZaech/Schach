@@ -9,7 +9,7 @@ public class Springer extends Figur {
     }
 
     @Override
-    public boolean[][] zeigeLaufmoeglichkeiten() {
+    public void berechneLaufmoeglichkeiten() {
         if (pruefeFeld(2, 1)) {
             laufMoeglichkeiten[reihe + 2][spalte + 1] = true;
         }
@@ -37,7 +37,6 @@ public class Springer extends Figur {
         if (pruefeFeld(-1, -2)) {
             laufMoeglichkeiten[reihe - 1][spalte - 2] = true;
         }
-        return laufMoeglichkeiten;
     }
 
     public boolean aufSchachbrett(int x, int y) {

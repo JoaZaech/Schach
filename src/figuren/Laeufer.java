@@ -14,7 +14,7 @@ public class Laeufer extends Figur{
     }
 
     @Override
-    public boolean[][] zeigeLaufmoeglichkeiten() {
+    public void berechneLaufmoeglichkeiten(){
         dasBrett = Steuerung.dasBrett;
         
         int[][] arr = {{-1,-1}, {-1,1}, {1,-1}, {1,1}};
@@ -24,8 +24,7 @@ public class Laeufer extends Figur{
                 
             }
         }
-        
-        return laufMoeglichkeiten;
+       
     }
     
     public boolean aufSchachbrett(int x, int y){

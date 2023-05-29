@@ -1,5 +1,6 @@
 package figuren;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import schach.Bild;
 import schach.Brett;
@@ -45,7 +46,7 @@ public abstract class Figur {
         }
     }
 
-    public abstract boolean[][] zeigeLaufmoeglichkeiten();
+    public abstract void berechneLaufmoeglichkeiten();
 
     public boolean isWeiss() {
         return weiss;
@@ -66,6 +67,21 @@ public abstract class Figur {
 
     public int getY() {
         return spalte;
+    }
+    
+    public void zeichneLaufMoeglichkeiten(Graphics g){
+        for (int i = 0; i < laufMoeglichkeiten[0].length; i++) {
+            for (int j = 0; j < laufMoeglichkeiten.length; j++) {
+                if(laufMoeglichkeiten[j][i]){
+                    g.setColor(new Color(255, 0, 0, 60));
+                    g.fillRect(j * WIDTH, i * HEIGHT, WIDTH, HEIGHT);
+                }
+            }
+        }
+    }
+    
+    public boolean pruefeFeldMoeglich(int x, int y){
+        return laufMoeglichkeiten[x][y];
     }
 
 }

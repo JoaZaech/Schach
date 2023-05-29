@@ -26,19 +26,10 @@ public class Steuerung {
 
         dasBrett.zeichne(g);
 
-        
-
-    }
-
-    private void zeichneLaufmoeglichkeiten(Graphics g) {
-        for (int i = 0; i < Laufmoeglichkeiten[0].length; i++) {
-            for (int j = 0; j < Laufmoeglichkeiten.length; j++) {
-                if (Laufmoeglichkeiten[j][i]) {
-                    g.setColor(new Color(255, 0, 0, 60));
-                    g.fillRect(j * WIDTH, i * HEIGHT, WIDTH, HEIGHT);
-                }
-            }
+        if(isFigurSelected()){
+            SelectedFigur.zeichneLaufMoeglichkeiten(g);
         }
+
     }
 
     public boolean isFigurSelected() {
@@ -46,7 +37,13 @@ public class Steuerung {
     }
 
     public void SelectFigur(int x, int y) {
-        
+        System.out.println(x + " " + y);
+        if(dasBrett.FigurAufBrett(x, y)){
+            SelectedFigur = dasBrett.gibFigur(x, y);
+            SelectedFigur.berechneLaufmoeglichkeiten();
+        }else{
+            SelectedFigur = null;
+        }
     }
 
 }

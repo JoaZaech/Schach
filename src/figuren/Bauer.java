@@ -11,7 +11,7 @@ public class Bauer extends Figur{
     }
 
     @Override
-    public boolean[][] zeigeLaufmoeglichkeiten() {
+    public void berechneLaufmoeglichkeiten() {
         dasBrett = Steuerung.dasBrett;
         int richtung;
         if(weiss == true){
@@ -40,9 +40,6 @@ public class Bauer extends Figur{
                 }
             } 
         }
-        
-       
-        return laufMoeglichkeiten;
     }
     
 }

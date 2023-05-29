@@ -138,7 +138,7 @@ public class GUI extends javax.swing.JPanel {
     private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased
         
         
-        dieSteuerung.SelectFigur(evt.getX() / WIDTH, evt.getY() / HEIGHT);
+        dieSteuerung.SelectFigur(evt.getX() / 100, evt.getY() / 100);
         
         repaint();
     }//GEN-LAST:event_formMouseReleased
