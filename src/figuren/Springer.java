@@ -1,24 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package figuren;
 
-import java.awt.Point;
-import java.util.HashMap;
 import schach.Steuerung;
 
-/**
- *
- * @author Joalu
- */
 public class Springer extends Figur{
 
     public Springer(int pReihe, int pSpalte, boolean pWeiss) {
-        super(pReihe, pSpalte, pWeiss);
-        ID = Figur.ID_SPRINGER;
-        setzeBild();
+        super(pReihe, pSpalte, pWeiss, Figur.ID_SPRINGER);
     }
 
     @Override

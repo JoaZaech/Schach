@@ -14,9 +14,7 @@ import schach.Steuerung;
 public class Laeufer extends Figur{
 
     public Laeufer(int pReihe, int pSpalte, boolean pWeiss) {
-        super(pReihe, pSpalte, pWeiss);
-        ID = Figur.ID_LAEUFER;
-        setzeBild();
+        super(pReihe, pSpalte, pWeiss, Figur.ID_LAEUFER);
     }
 
     @Override

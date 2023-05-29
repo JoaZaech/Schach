@@ -38,40 +38,23 @@ public class Steuerung {
         }
 
         if (SelectedFigur != null) {
-            for (int i = 0; i < Laufmoeglichkeiten[0].length; i++) {
-                for (int j = 0; j < Laufmoeglichkeiten.length; j++) {
-                    if (Laufmoeglichkeiten[j][i]) {
-                        g.setColor(new Color(255,0,0,60));
-                        g.fillRect(j * WIDTH, i * HEIGHT, WIDTH, HEIGHT);
-                    }
+
+        }
+
+    }
+
+    private void zeichneLaufmoeglichkeiten(Graphics g) {
+        for (int i = 0; i < Laufmoeglichkeiten[0].length; i++) {
+            for (int j = 0; j < Laufmoeglichkeiten.length; j++) {
+                if (Laufmoeglichkeiten[j][i]) {
+                    g.setColor(new Color(255, 0, 0, 60));
+                    g.fillRect(j * WIDTH, i * HEIGHT, WIDTH, HEIGHT);
                 }
             }
         }
-
     }
 
-    public void SelectFigur(int x, int y) {
-        if (Brett[x][y] != null) {
-            SelectedFigur = Brett[x][y];
-            Laufmoeglichkeiten =  SelectedFigur.zeigeLaufmoeglichkeiten();
-        }else {
-            SelectedFigur = null;
-            Laufmoeglichkeiten = null;
-        }
-    }
-    
-    
-    public void setzeFigur(int x, int y){
-        if(Laufmoeglichkeiten[x][y]){
-            Brett[x][y] = SelectedFigur;
-            Brett[SelectedFigur.getX()][SelectedFigur.getY()] = null;
-            SelectedFigur.setzePos(x, y);
-            SelectedFigur = null;
-            Laufmoeglichkeiten = null;
-        }
-    }
-    
-    public boolean isFigurSelected(){
+    public boolean isFigurSelected() {
         return SelectedFigur != null;
     }
 
