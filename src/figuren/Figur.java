@@ -85,7 +85,6 @@ public abstract class Figur {
     }
     
     public boolean pruefeFeldMoeglich(int x, int y){
-        berechneLaufmoeglichkeiten();
         return laufMoeglichkeiten[x][y];
     }
 
