@@ -12,10 +12,11 @@ public class Steuerung {
     private GUI dieGUI;
     private FENReader Reader;
     private Figur SelectedFigur;
-    private boolean[][] Laufmoeglichkeiten;
+    private boolean WeissAnDerReihe;
 
     public Steuerung(GUI dieGUI) {
         dasBrett = new Brett();
+        WeissAnDerReihe = true;
         SelectedFigur = null;
         this.dieGUI = dieGUI;
         Reader = new FENReader(dasBrett);
@@ -37,8 +38,22 @@ public class Steuerung {
     }
 
     public void SelectFigur(int x, int y) {
-        System.out.println(x + " " + y);
-        if(dasBrett.FigurAufBrett(x, y)){
+        
+        // Wenn figur ausgewählt und neue pos ungleich letzter pos und pos möglich dann setze figur
+        
+        if(isFigurSelected()){
+            SelectedFigur.berechneLaufmoeglichkeiten();
+            if(SelectedFigur.getX() != x && SelectedFigur.getY() != y && SelectedFigur.pruefeFeldMoeglich(x, y)){
+                dasBrett.resetFigur(SelectedFigur.getX(), SelectedFigur.getY());
+                SelectedFigur.setzePos(x, y);
+                dasBrett.setzeFigur(x, y, SelectedFigur);
+                System.out.println("jaaa");
+                SelectedFigur = null;
+                WeissAnDerReihe = !WeissAnDerReihe;
+            }
+        }
+        
+        if(dasBrett.FigurAufBrett(x, y) && WeissAnDerReihe == dasBrett.gibFigur(x, y).isWeiss()){
             SelectedFigur = dasBrett.gibFigur(x, y);
             SelectedFigur.berechneLaufmoeglichkeiten();
         }else{

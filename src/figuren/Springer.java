@@ -10,6 +10,7 @@ public class Springer extends Figur {
 
     @Override
     public void berechneLaufmoeglichkeiten() {
+         resetLaufmoeglichkeiten();
         if (pruefeFeld(2, 1)) {
             laufMoeglichkeiten[reihe + 2][spalte + 1] = true;
         }

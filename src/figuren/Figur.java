@@ -39,15 +39,19 @@ public abstract class Figur {
             bild = new Bild("img/black/" + ID + ".png");
         }
         laufMoeglichkeiten = new boolean[BRETT_WIDTH][BRETT_HEIGHT];
+        resetLaufmoeglichkeiten();
+    }
+
+    public abstract void berechneLaufmoeglichkeiten();
+    
+    protected void resetLaufmoeglichkeiten(){
         for (int i = 0; i < laufMoeglichkeiten[0].length; i++) {
             for (int j = 0; j < laufMoeglichkeiten.length; j++) {
                 laufMoeglichkeiten[j][i] = false;
             }
         }
     }
-
-    public abstract void berechneLaufmoeglichkeiten();
-
+    
     public boolean isWeiss() {
         return weiss;
     }
@@ -81,6 +85,7 @@ public abstract class Figur {
     }
     
     public boolean pruefeFeldMoeglich(int x, int y){
+        berechneLaufmoeglichkeiten();
         return laufMoeglichkeiten[x][y];
     }
 

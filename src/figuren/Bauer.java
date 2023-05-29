@@ -13,6 +13,7 @@ public class Bauer extends Figur{
     @Override
     public void berechneLaufmoeglichkeiten() {
         dasBrett = Steuerung.dasBrett;
+         resetLaufmoeglichkeiten();
         int richtung;
         if(weiss == true){
             richtung = -1;

@@ -16,6 +16,7 @@ public class Laeufer extends Figur{
     @Override
     public void berechneLaufmoeglichkeiten(){
         dasBrett = Steuerung.dasBrett;
+         resetLaufmoeglichkeiten();
         
         int[][] arr = {{-1,-1}, {-1,1}, {1,-1}, {1,1}};
         
