@@ -2,6 +2,9 @@ package figuren;
 
 import java.awt.Graphics;
 import schach.Bild;
+import schach.Brett;
+import static schach.Brett.BRETT_HEIGHT;
+import static schach.Brett.BRETT_WIDTH;
 
 public abstract class Figur {
 
@@ -20,7 +23,9 @@ public abstract class Figur {
     protected boolean weiss;
     protected int reihe;
     protected int spalte;
-    protected boolean[][] Laufmoeglichkeiten;
+
+    protected Brett dasBrett;
+    protected boolean[][] laufMoeglichkeiten;
 
     public Figur(int pReihe, int pSpalte, boolean pWeiss, int ID) {
         reihe = pReihe;
@@ -31,6 +36,12 @@ public abstract class Figur {
             bild = new Bild("img/white/" + ID + ".png");
         } else {
             bild = new Bild("img/black/" + ID + ".png");
+        }
+        laufMoeglichkeiten = new boolean[BRETT_WIDTH][BRETT_HEIGHT];
+        for (int i = 0; i < laufMoeglichkeiten[0].length; i++) {
+            for (int j = 0; j < laufMoeglichkeiten.length; j++) {
+                laufMoeglichkeiten[j][i] = false;
+            }
         }
     }
 
@@ -48,8 +59,7 @@ public abstract class Figur {
         reihe = x;
         spalte = y;
     }
-    
-    
+
     public int getX() {
         return reihe;
     }

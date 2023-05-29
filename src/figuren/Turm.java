@@ -1,6 +1,7 @@
-
 package figuren;
 
+import static schach.Brett.BRETT_HEIGHT;
+import static schach.Brett.BRETT_WIDTH;
 import schach.Steuerung;
 
 public class Turm extends Figur {
@@ -11,20 +12,16 @@ public class Turm extends Figur {
 
     @Override
     public boolean[][] zeigeLaufmoeglichkeiten() {
-        boolean[][] laufMoeglichkeiten = new boolean[8][8];
+        dasBrett = Steuerung.dasBrett;
         for (int i = 0; i < laufMoeglichkeiten[0].length; i++) {
             for (int j = 0; j < laufMoeglichkeiten.length; j++) {
                 laufMoeglichkeiten[j][i] = false;
             }
         }
-        Figur[][] dasBrett = Steuerung.getBrett();
-        
-        
-        
         //  Links 
-        for (int i = reihe-1; i >= 0; i--) {
-            if (dasBrett[i][spalte] != null) {
-                if (dasBrett[i][spalte].isWeiss() == weiss) {
+        for (int i = reihe - 1; i >= 0; i--) {
+            if (dasBrett.FigurAufBrett(i, spalte)) {
+                if (dasBrett.gibFigur(i, spalte).isWeiss() == weiss) {
                     break;
                 } else {
                     laufMoeglichkeiten[i][spalte] = true;
@@ -34,12 +31,11 @@ public class Turm extends Figur {
                 laufMoeglichkeiten[i][spalte] = true;
             }
         }
-        
-        
+
         // Rechts
-        for (int i = reihe + 1; i < dasBrett.length; i++) {
-            if (dasBrett[i][spalte] != null) {
-                if (dasBrett[i][spalte].isWeiss() == weiss) {
+        for (int i = reihe + 1; i < BRETT_WIDTH; i++) {
+            if (dasBrett.FigurAufBrett(i, spalte)) {
+                if (dasBrett.gibFigur(i, spalte).isWeiss() == weiss) {
                     break;
                 } else {
                     laufMoeglichkeiten[i][spalte] = true;
@@ -50,26 +46,10 @@ public class Turm extends Figur {
             }
         }
 
-        
         //  Oben 
-        for (int i = spalte-1; i >= 0; i--) {
-            if (dasBrett[reihe][i] != null) {
-                if (dasBrett[reihe][i].isWeiss() == weiss) {
-                    break;
-                } else {
-                    laufMoeglichkeiten[reihe][i] = true;
-                    break;
-                }
-            } else {
-                laufMoeglichkeiten[reihe][i] = true;
-            }
-        }
-        
-        
-        // Unten
-        for (int i = spalte + 1; i < dasBrett.length; i++) {
-            if (dasBrett[reihe][i] != null) {
-                if (dasBrett[reihe][i].isWeiss() == weiss) {
+        for (int i = spalte - 1; i >= 0; i--) {
+            if (dasBrett.FigurAufBrett(reihe, i)) {
+                if (dasBrett.gibFigur(reihe, i).isWeiss() == weiss) {
                     break;
                 } else {
                     laufMoeglichkeiten[reihe][i] = true;
@@ -80,6 +60,19 @@ public class Turm extends Figur {
             }
         }
 
+        // Unten
+        for (int i = spalte + 1; i < BRETT_HEIGHT; i++) {
+            if (dasBrett.FigurAufBrett(reihe, i)) {
+                if (dasBrett.gibFigur(reihe, i).isWeiss() == weiss) {
+                    break;
+                } else {
+                    laufMoeglichkeiten[reihe][i] = true;
+                    break;
+                }
+            } else {
+                laufMoeglichkeiten[reihe][i] = true;
+            }
+        }
 
         return laufMoeglichkeiten;
     }
