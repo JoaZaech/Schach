@@ -14,11 +14,6 @@ public class Turm extends Figur {
     public void berechneLaufmoeglichkeiten() {
         dasBrett = Steuerung.dasBrett;
          resetLaufmoeglichkeiten();
-        for (int i = 0; i < laufMoeglichkeiten[0].length; i++) {
-            for (int j = 0; j < laufMoeglichkeiten.length; j++) {
-                laufMoeglichkeiten[j][i] = false;
-            }
-        }
         //  Links 
         for (int i = reihe - 1; i >= 0; i--) {
             if (dasBrett.FigurAufBrett(i, spalte)) {

@@ -42,12 +42,10 @@ public class Steuerung {
         // Wenn figur ausgewählt und neue pos ungleich letzter pos und pos möglich dann setze figur
         
         if(isFigurSelected()){
-            SelectedFigur.berechneLaufmoeglichkeiten();
-            if(SelectedFigur.getX() != x && SelectedFigur.getY() != y && SelectedFigur.pruefeFeldMoeglich(x, y)){
+            if((SelectedFigur.getX() != x || SelectedFigur.getY() != y) && SelectedFigur.pruefeFeldMoeglich(x, y)){
                 dasBrett.resetFigur(SelectedFigur.getX(), SelectedFigur.getY());
                 SelectedFigur.setzePos(x, y);
                 dasBrett.setzeFigur(x, y, SelectedFigur);
-                System.out.println("jaaa");
                 SelectedFigur = null;
                 WeissAnDerReihe = !WeissAnDerReihe;
             }
