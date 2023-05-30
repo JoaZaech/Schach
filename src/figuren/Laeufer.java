@@ -13,35 +13,6 @@ public class Laeufer extends Figur {
     public void berechneLaufmoeglichkeiten() {
         dasBrett = Steuerung.dasBrett;
         resetLaufmoeglichkeiten();
-        /*
-        // AbstandRe
-        int rowRe = Brett.BRETT_WIDTH - reihe + 1;
-
-        int rowLi = Brett.BRETT_WIDTH - rowRe + 1;
-
-        int columnRe = Brett.BRETT_HEIGHT - spalte + 1;
-
-        int columnLi = Brett.BRETT_HEIGHT - columnRe + 1;
-
-        // Rechts unten
-        for (int spaltezaehler = 1; spaltezaehler < rowRe; spaltezaehler++) {
-            for (int reihezaehler = 1; reihezaehler < columnRe; reihezaehler++) {
-                if (reihezaehler == spaltezaehler && aufSchachbrett(reihe + reihezaehler, spalte + spaltezaehler)) {
-
-                    laufMoeglichkeiten[reihe + reihezaehler][spalte + spaltezaehler] = true;
-                }
-            }
-        }
-
-        // Links unten
-        for (int spaltezaehler = 1; spaltezaehler < rowLi + 1; spaltezaehler++) {
-            for (int reihezaehler = 1; reihezaehler < columnLi + 1; reihezaehler++) {
-                if (reihezaehler == spaltezaehler && aufSchachbrett(reihe - reihezaehler, spalte - spaltezaehler)) {
-                    laufMoeglichkeiten[reihe - reihezaehler][spalte - spaltezaehler] = true;
-                }
-            }
-        }
-        */
         int spaltezaehler = spalte;
         int reihezaehler = reihe;
         dasBrett = Steuerung.dasBrett;
