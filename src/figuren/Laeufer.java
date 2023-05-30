@@ -41,7 +41,8 @@ public class Laeufer extends Figur {
                 }
             }
         }
-
+        
+        
     }
 
     public boolean aufSchachbrett(int x, int y) {

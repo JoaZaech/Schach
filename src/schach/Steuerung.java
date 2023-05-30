@@ -20,7 +20,8 @@ public class Steuerung {
         SelectedFigur = null;
         this.dieGUI = dieGUI;
         Reader = new FENReader(dasBrett);
-        Reader.lese("3n3B/2R3B1/5B2/R3B1n1/3B4/2B1R3/1B3N2/B1n5");
+        Reader.lese("8/1bq2pp1/4k3/8/1B1KB3/2P2Q2/PP6/8");
+    //"3n3B/2R3B1/5B2/R3B1n1/3B4/2B1R3/1B3N2/B1n5"
     }
 
     public void zeichne(Graphics g) {
