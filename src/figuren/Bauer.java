@@ -24,7 +24,7 @@ public class Bauer extends Figur{
         if(!dasBrett.FigurAufBrett(reihe, spalte+richtung)){ // ein Feld vor
             laufMoeglichkeiten[reihe][spalte+richtung] = true;
             if(spalte+richtung*2 >= 0 && spalte+richtung*2 <= BRETT_HEIGHT){ // zwei Felder vor
-                if((spalte == 1 || spalte == 6) && !dasBrett.FigurAufBrett(reihe, spalte+richtung*2)){
+                if(( spalte == 1 && weiss == false || spalte == 6 && weiss == true ) && !dasBrett.FigurAufBrett(reihe, spalte+richtung*2)){
                     laufMoeglichkeiten[reihe][spalte+richtung*2] = true;
                 } 
             }
