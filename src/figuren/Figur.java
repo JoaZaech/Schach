@@ -73,6 +73,10 @@ public abstract class Figur {
         return spalte;
     }
     
+    public int getID() {
+        return ID;
+    }
+    
     public void zeichneLaufMoeglichkeiten(Graphics g){
         for (int i = 0; i < laufMoeglichkeiten[0].length; i++) {
             for (int j = 0; j < laufMoeglichkeiten.length; j++) {
@@ -87,5 +91,5 @@ public abstract class Figur {
     public boolean pruefeFeldMoeglich(int x, int y){
         return laufMoeglichkeiten[x][y];
     }
-
+    
 }

@@ -13,8 +13,10 @@ public class Steuerung {
     private FENReader Reader;
     private Figur SelectedFigur;
     private boolean WeissAnDerReihe;
-
+    private Schachdetektor derSchachdetektor;
+    
     public Steuerung(GUI dieGUI) {
+        derSchachdetektor = new Schachdetektor();
         dasBrett = new Brett();
         WeissAnDerReihe = true;
         SelectedFigur = null;
@@ -40,6 +42,7 @@ public class Steuerung {
 
     public void SelectFigur(int x, int y) {
         
+        
         // Wenn figur ausgewählt und neue pos ungleich letzter pos und pos möglich dann setze figur
         
         if(isFigurSelected()){
@@ -49,15 +52,25 @@ public class Steuerung {
                 dasBrett.setzeFigur(x, y, SelectedFigur);
                 SelectedFigur = null;
                 WeissAnDerReihe = !WeissAnDerReihe;
+                derSchachdetektor.printInfos();
+                pruefeSchach();
             }
         }
         
         if(dasBrett.FigurAufBrett(x, y) && WeissAnDerReihe == dasBrett.gibFigur(x, y).isWeiss()){
             SelectedFigur = dasBrett.gibFigur(x, y);
             SelectedFigur.berechneLaufmoeglichkeiten();
+            
         }else{
             SelectedFigur = null;
         }
+    }
+    
+    public void pruefeSchach(){
+        if( derSchachdetektor.isSchach(dasBrett) ){
+            
+        }
+        derSchachdetektor.printInfos();
     }
 
 }
