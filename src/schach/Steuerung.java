@@ -22,8 +22,7 @@ public class Steuerung {
         SelectedFigur = null;
         this.dieGUI = dieGUI;
         Reader = new FENReader(dasBrett);
-        Reader.lese("8/1bq2pp1/4k3/8/1B1KB3/2P2Q2/PP6/8");
-    //"3n3B/2R3B1/5B2/R3B1n1/3B4/2B1R3/1B3N2/B1n5"
+        Reader.lese( FENReader.Grundaufstellung );
     }
 
     public void zeichne(Graphics g) {
@@ -57,19 +56,18 @@ public class Steuerung {
                 dasBrett.setzeFigur(x, y, SelectedFigur);
                 
                 if(derSchachdetektor.IsKoenigImSchach(WeissAnDerReihe, dasBrett)){ 
-                        SelectedFigur.setzePos(selectedX, selectedY);
-                        dasBrett.setzeFigur(selectedX, selectedY, SelectedFigur);
-                        if(alteFigur == null){
-                            dasBrett.resetFigur(x, y);
-                        }else{
-                            dasBrett.setzeFigur(x, y, alteFigur);
-                        }
+                    //ungueltiger Zug wird zurueckgesetzt
+                    SelectedFigur.setzePos(selectedX, selectedY);
+                    dasBrett.setzeFigur(selectedX, selectedY, SelectedFigur);
+                    if(alteFigur == null){
+                        dasBrett.resetFigur(x, y);
+                    }else{
+                        dasBrett.setzeFigur(x, y, alteFigur);
+                    }
                         
                 }else{
                     //gueltiger Zug
                     WeissAnDerReihe = !WeissAnDerReihe;
-                    
-                    //derSchachdetektor.printInfos();
                 }
                 
                 SelectedFigur = null;

@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class FENReader {
 
-    public static String Grundaufstellung = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+    public final static String Grundaufstellung = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
     private Brett dasBrett;
     private HashMap<Character, Integer> dieListe;
 

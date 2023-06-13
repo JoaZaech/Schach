@@ -12,6 +12,7 @@ public class Bauer extends Figur{
 
     @Override
     public void berechneLaufmoeglichkeiten() {
+        //System.out.println("Bauer Reihe: " + reihe);
         dasBrett = Steuerung.dasBrett;
         resetLaufmoeglichkeiten();
         int richtung;
@@ -29,14 +30,14 @@ public class Bauer extends Figur{
                     } 
                 //}
             }
-            if(reihe+1 <= BRETT_HEIGHT){ //schlagen
+            if(reihe+1 >= 0 && reihe+1 < BRETT_HEIGHT){ //schlagen r
                 if( dasBrett.FigurAufBrett(reihe+1, spalte+richtung)){
                     if( dasBrett.gibFigur(reihe+1, spalte+richtung).isWeiss() != weiss){
                         laufMoeglichkeiten[reihe+1][spalte+richtung] = true;
                     }
                 }
             }
-            if(reihe-1 >= 0){ //schlagen andere Richtung
+            if(reihe-1 >= 0 && reihe-1 < BRETT_HEIGHT){ //schlagen l
                 if(dasBrett.FigurAufBrett(reihe-1, spalte+richtung)){
                     if(dasBrett.gibFigur(reihe-1, spalte+richtung).isWeiss() != weiss){
                         laufMoeglichkeiten[reihe-1][spalte+richtung] = true;
