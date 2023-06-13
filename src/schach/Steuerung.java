@@ -8,7 +8,7 @@ import java.awt.Graphics;
 
 public class Steuerung {
 
-    public static Brett dasBrett;
+    public static Brett dasBrett; 
     private GUI dieGUI;
     private FENReader Reader;
     private Figur SelectedFigur;
@@ -17,7 +17,7 @@ public class Steuerung {
     
     public Steuerung(GUI dieGUI) {
         derSchachdetektor = new Schachdetektor();
-        dasBrett = new Brett();
+        dasBrett = new Brett(); 
         WeissAnDerReihe = true;
         SelectedFigur = null;
         this.dieGUI = dieGUI;
@@ -47,13 +47,33 @@ public class Steuerung {
         
         if(isFigurSelected()){
             if((SelectedFigur.getX() != x || SelectedFigur.getY() != y) && SelectedFigur.pruefeFeldMoeglich(x, y)){
+                
+                int selectedX = SelectedFigur.getX();
+                int selectedY = SelectedFigur.getY();
+                final Figur alteFigur = dasBrett.gibFigur(x, y); 
+                
                 dasBrett.resetFigur(SelectedFigur.getX(), SelectedFigur.getY());
                 SelectedFigur.setzePos(x, y);
                 dasBrett.setzeFigur(x, y, SelectedFigur);
+                
+                if(derSchachdetektor.IsKoenigImSchach(WeissAnDerReihe, dasBrett)){ 
+                        SelectedFigur.setzePos(selectedX, selectedY);
+                        dasBrett.setzeFigur(selectedX, selectedY, SelectedFigur);
+                        if(alteFigur == null){
+                            dasBrett.resetFigur(x, y);
+                        }else{
+                            dasBrett.setzeFigur(x, y, alteFigur);
+                        }
+                        
+                }else{
+                    //gueltiger Zug
+                    WeissAnDerReihe = !WeissAnDerReihe;
+                    
+                    //derSchachdetektor.printInfos();
+                }
+                
                 SelectedFigur = null;
-                WeissAnDerReihe = !WeissAnDerReihe;
-                derSchachdetektor.printInfos();
-                pruefeSchach();
+                
             }
         }
         
@@ -66,11 +86,12 @@ public class Steuerung {
         }
     }
     
-    public void pruefeSchach(){
+    public boolean pruefeSchach(){
         if( derSchachdetektor.isSchach(dasBrett) ){
             
         }
         derSchachdetektor.printInfos();
+        return true;
     }
 
 }

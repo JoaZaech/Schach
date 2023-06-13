@@ -61,4 +61,35 @@ public class Schachdetektor {
         System.out.println("Position Koenig weiss  : " + Kweiss);
         System.out.println(" Schach = " + isSchach);
     }
+    
+    public boolean IsKoenigImSchach(boolean weissKoenig, Brett brett){
+        findeKoenig(brett);
+        for (int i = 0; i < Brett.BRETT_HEIGHT; i++) {
+            for (int j = 0; j < Brett.BRETT_WIDTH; j++) {
+                angreifer = brett.gibFigur(j, i);
+                if(angreifer != null){
+                    angreifer.berechneLaufmoeglichkeiten();
+                    if(angreifer.isWeiss() == true){
+                        if(angreifer.pruefeFeldMoeglich( Kschwarz.x, Kschwarz.y) == true){
+                            if(weissKoenig == false){
+                                isSchach = true;
+                                return true;
+                            }
+                            
+                        }
+                    }else{
+                        if(angreifer.pruefeFeldMoeglich( Kweiss.x, Kweiss.y) == true){
+                            if(weissKoenig == true){
+                                isSchach = true;
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        isSchach = false;
+        return false;
+        
+    }
 }
